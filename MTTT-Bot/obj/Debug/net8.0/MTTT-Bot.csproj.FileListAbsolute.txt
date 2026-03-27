@@ -1,0 +1,14 @@
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\bin\Debug\net8.0\MTTT-Bot.exe
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\bin\Debug\net8.0\MTTT-Bot.deps.json
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\bin\Debug\net8.0\MTTT-Bot.runtimeconfig.json
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\bin\Debug\net8.0\MTTT-Bot.dll
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\bin\Debug\net8.0\MTTT-Bot.pdb
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.AssemblyInfoInputs.cache
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.AssemblyInfo.cs
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.csproj.CoreCompileInputs.cache
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.dll
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\refint\MTTT-Bot.dll
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.pdb
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.genruntimeconfig.cache
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\ref\MTTT-Bot.dll
