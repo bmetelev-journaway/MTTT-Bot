@@ -6,29 +6,22 @@ public class PrepareGame
     private const string urlJoinGame = "http://localhost:5088/api/Game/lobby/";
     private const string urlLobbyState = "http://localhost:5088/api/Game/";
     
-    public static string startGame(Guid playerOneId, Guid playerTwoId)
+    public static string startGame(Guid myPlayerId)
     {
         string gameId;
+    
+        Console.WriteLine("Suche nach Mitspieler (Lobby)...");
         
-        Console.WriteLine("Waiting for Players...");
-        gameId = Task.Run(() => JoinGame(playerOneId)).Result;
-        Console.WriteLine("Checking Lobby State...");
+        gameId = Task.Run(() => JoinGame(myPlayerId)).Result;
+        gameId = gameId.Trim('"');
+
+        Console.WriteLine("Lobby beigetreten. Warte auf Spielstart...");
+        
         Task.Run(() => GetGameState(gameId)).Wait();
-        
-        Console.WriteLine("Waiting for Players...");
-        gameId = Task.Run(() => JoinGame(playerTwoId)).Result;
-        Console.WriteLine("Checking Lobby State...");
-        Task.Run(() => GetGameState(gameId)).Wait();
-        
-        //Thread.Sleep(500);
-        Console.WriteLine("Joined Game");
-        Console.WriteLine(gameId);
-        Task.Run(() => _GetGameDTO(gameId)).Wait();
-        
+    
         return gameId;
     }
-
-
+    
     
     private static async Task<string> JoinGame(Guid playerId)
     {

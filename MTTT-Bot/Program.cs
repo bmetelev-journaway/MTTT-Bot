@@ -11,7 +11,7 @@ class Program
         GameDto lastValidDto = null;
 
         // 2. Spiel beitreten
-        string gameIdRaw = PrepareGame.startGame(myPlayerId, Guid.NewGuid());
+        string gameIdRaw = PrepareGame.startGame(myPlayerId);
         string gameId = gameIdRaw.Replace("\"", "");
 
         Console.Clear();
