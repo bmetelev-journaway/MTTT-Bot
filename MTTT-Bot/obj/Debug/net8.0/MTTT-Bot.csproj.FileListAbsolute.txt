@@ -12,3 +12,4 @@ C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\refint\MTTT-Bot.dl
 C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.pdb
 C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.genruntimeconfig.cache
 C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\ref\MTTT-Bot.dll
+C:\Users\Bea\RiderProjects\MTTT-Bot\MTTT-Bot\obj\Debug\net8.0\MTTT-Bot.sourcelink.json
