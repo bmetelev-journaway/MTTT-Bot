@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MTTT-Bot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2579030f61d58201ea1bb4a0a7e7fa6dcdc7c38")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6cd2d769daae41921ea6940b0ef7b395e091c175")]
 [assembly: System.Reflection.AssemblyProductAttribute("MTTT-Bot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MTTT-Bot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

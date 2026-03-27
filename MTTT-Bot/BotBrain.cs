@@ -12,18 +12,23 @@ public static class BotBrain
     public static (int x, int y) ChooseMove(GameDto dto)
     {
         char[,] board = ParseField(dto.PlayField);
-        
-        // Symbole bestimmen
         char mySymbol = (dto.PlayerIds[0] == dto.CurrentPlayerId) ? 'X' : 'O';
         char oppSymbol = (mySymbol == 'X') ? 'O' : 'X';
-
-        int targetBigField = dto.FreeMove ? -1 : dto.NextFieldIndicator;
-
-        if (targetBigField == -1)
+        
+        int targetBigField = dto.NextFieldIndicator;
+        
+        if (targetBigField == -1 || dto.WinningField[targetBigField] != ' ')
         {
-            for (int i = 0; i < 9; i++) 
-                if (dto.WinningField[i] == ' ') { targetBigField = i; break; }
+            for (int i = 0; i < 9; i++)
+            {
+                if (dto.WinningField[i] == ' ')
+                {
+                    targetBigField = i;
+                    break;
+                }
+            }
         }
+        
 
         //Regel 1: Prüfe ob ich selbst 3 in eine Reihe kriege
         int? winningCell = FindCompletingMove(board, targetBigField, mySymbol);
@@ -75,18 +80,55 @@ public static class BotBrain
     public static char[,] ParseField(List<string> lines)
     {
         char[,] grid = new char[9, 9];
+        for (int i = 0; i < 9; i++)
+        for (int j = 0; j < 9; j++)
+            grid[i, j] = ' ';
+
         int logicalRow = 0;
         foreach (var line in lines)
         {
-            if (line.Contains("_") || string.IsNullOrWhiteSpace(line)) continue;
+            if (string.IsNullOrWhiteSpace(line) || line.Contains("-") || line.Contains("_")) 
+                continue;
+            
+            if (line.Length < 23) continue; 
+
             int k = logicalRow / 3;
             int i = logicalRow % 3;
-            grid[3 * k, 3 * i + 0] = line[0]; grid[3 * k, 3 * i + 1] = line[2]; grid[3 * k, 3 * i + 2] = line[4];
-            grid[3 * k + 1, 3 * i + 0] = line[9]; grid[3 * k + 1, 3 * i + 1] = line[11]; grid[3 * k + 1, 3 * i + 2] = line[13];
-            grid[3 * k + 2, 3 * i + 0] = line[18]; grid[3 * k + 2, 3 * i + 1] = line[20]; grid[3 * k + 2, 3 * i + 2] = line[22];
-            logicalRow++;
+
+            try {
+                // Block 1 (Links)
+                grid[3 * k, 3 * i + 0] = line[0]; 
+                grid[3 * k, 3 * i + 1] = line[2]; 
+                grid[3 * k, 3 * i + 2] = line[4];
+
+                // Block 2 (Mitte) Sicherstellen dass Index 9 existiert
+                grid[3 * k + 1, 3 * i + 0] = line[9]; 
+                grid[3 * k + 1, 3 * i + 1] = line[11]; 
+                grid[3 * k + 1, 3 * i + 2] = line[13];
+
+                // Block 3 (Rechts) Sicherstellen dass Index 18 existiert
+                grid[3 * k + 2, 3 * i + 0] = line[18]; 
+                grid[3 * k + 2, 3 * i + 1] = line[20]; 
+                grid[3 * k + 2, 3 * i + 2] = line[22];
+
+                logicalRow++;
+            } catch (IndexOutOfRangeException) {
+                continue;
+            }
+
             if (logicalRow >= 9) break;
         }
         return grid;
+    }
+    
+    public static (int x, int y) GetAlternativeMove(GameDto dto, int bigField, List<string> blacklist)
+    {
+        char[,] board = ParseField(dto.PlayField);
+        for (int y = 0; y < 9; y++)
+        {
+            if (board[bigField, y] == ' ' && !blacklist.Contains($"{bigField}-{y}"))
+                return (bigField, y);
+        }
+        return (bigField, 0);
     }
 }
