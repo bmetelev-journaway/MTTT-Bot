@@ -39,22 +39,8 @@ public class PrepareGame
         gameId = gameId.Remove(gameId.Length - 1, 1);
         HttpResponseMessage response = await client.GetAsync(urlLobbyState + gameId + "/lobby/");
     }
-
-    private static async Task _MakeMove(string playerId)
-    {
-        throw new NotImplementedException();
-    }
-
-    private static async Task _GetGameDTO(string gameId)
-    {
-        HttpClient client = new HttpClient();
-        gameId = gameId.Remove(0, 1);
-        gameId = gameId.Remove(gameId.Length - 1, 1);
-        HttpResponseMessage response = await client.GetAsync(urlLobbyState + gameId);
-        Console.WriteLine(response.Content.ReadAsStringAsync().Result);
-    }
     
-    public static async Task<GameDto> _GetGameDTO_Actual(string gameId)
+    public static async Task<GameDto> GetGameDTO(string gameId)
     {
         HttpClient client = new HttpClient();
         

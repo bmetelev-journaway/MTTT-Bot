@@ -22,16 +22,6 @@ public class makeMove
         return moveResult;
     }
     
-    public static int choseField()
-    {
-        int[] BigField = new int[]{0, 3 ,6};
-        Random random = new Random();
-        int bigFieldIndex = random.Next(0, 3);
-        int smallFieldIndex = random.Next(0, 3);
-        
-        return BigField[bigFieldIndex] + smallFieldIndex;
-    }
-    
     private static async Task<string> sendMove(string url, MoveDto moveDto)
     {
         HttpClient client = new HttpClient();

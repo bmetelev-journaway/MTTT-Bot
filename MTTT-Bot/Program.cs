@@ -23,7 +23,7 @@ class Program
             GameDto dto = null;
             try 
             {
-                dto = Task.Run(() => PrepareGame._GetGameDTO_Actual(gameId)).Result;
+                dto = Task.Run(() => PrepareGame.GetGameDTO(gameId)).Result;
             }
             catch (Exception ex)
             {
